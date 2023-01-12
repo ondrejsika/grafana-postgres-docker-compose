@@ -5,6 +5,9 @@
 .vscode
 .idea
 
+# Docker
+docker-compose.override.yml
+
 # Generic
 *.log
 *.backup
