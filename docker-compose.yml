@@ -6,8 +6,6 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pg}
-    ports:
-      - "${POSTGRES_PORT:-15432}:5432"
     volumes:
       - ./data/postgres-data:/var/lib/postgresql/data
   grafana:
@@ -22,7 +20,5 @@ services:
     restart: always
     depends_on:
         - postgres
-    ports:
-      - ${GRAFANA_PORT:-13000}:3000
     volumes:
       - ./data/grafana:/var/lib/grafana
