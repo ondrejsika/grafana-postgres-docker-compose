@@ -8,3 +8,6 @@
 # Generic
 *.log
 *.backup
+
+# App
+/data
