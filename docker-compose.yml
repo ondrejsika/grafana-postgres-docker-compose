@@ -17,6 +17,7 @@ services:
       GF_DATABASE_USER: ${GF_DATABASE_USER:-postgres}
       GF_DATABASE_PASSWORD: ${GF_DATABASE_NAME:-pg}
       GF_DATABASE_SSL_MODE: disable
+      GF_USERS_VIEWERS_CAN_EDIT: true
     restart: always
     depends_on:
         - postgres
