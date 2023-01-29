@@ -18,6 +18,14 @@ services:
       GF_DATABASE_PASSWORD: ${GF_DATABASE_NAME:-pg}
       GF_DATABASE_SSL_MODE: disable
       GF_USERS_VIEWERS_CAN_EDIT: true
+      GF_AUTH_GENERIC_OAUTH_ENABLED: 'true'
+      GF_AUTH_GENERIC_OAUTH_NAME: SikaLabs SSO
+      GF_AUTH_GENERIC_OAUTH_SCOPES: openid profile email groups
+      GF_AUTH_GENERIC_OAUTH_AUTH_URL: https://sso.sl.zone/realms/sikalabs/protocol/openid-connect/auth
+      GF_AUTH_GENERIC_OAUTH_TOKEN_URL: https://sso.sl.zone/realms/sikalabs/protocol/openid-connect/token
+      GF_AUTH_GENERIC_OAUTH_API_URL: https://sso.sl.zone/realms/sikalabs/protocol/openid-connect/userinfo
+      GF_AUTH_GENERIC_OAUTH_CLIENT_ID: grafana
+      GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET: ${GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET?Variable GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET is required}}
     restart: always
     depends_on:
         - postgres
